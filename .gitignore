@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+
+# Metaflow
+.metaflow/
+
+# Traces (session output, not source)
+traces/
+
+# OS
+.DS_Store
+
+# Editors / tools
+.omo/
+.kilo/
+.vscode/
+.idea/
+
+src/metaflow_durability/_version.py
+
+.env

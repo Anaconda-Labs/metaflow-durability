@@ -1,0 +1,30 @@
+[workspace]
+name = "metaflow-durability"
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64"]
+
+[dependencies]
+python = ">=3.11"
+
+[pypi-dependencies]
+metaflow-durability = { path = ".", editable = true, extras = ["pydantic-ai"] }
+
+[feature.dev.pypi-dependencies]
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+mypy = "*"
+ruff = "*"
+
+[feature.examples.pypi-dependencies]
+tavily-python = "*"
+python-dotenv = "*"
+
+[environments]
+default = { features = ["dev"], solve-group = "default" }
+examples = { features = ["dev", "examples"], solve-group = "default" }
+
+[tasks]
+test = "pytest tests"
+lint = "ruff check src"
+typecheck = "mypy"
