@@ -1,0 +1,37 @@
+name: test
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  merge_group:
+  workflow_call:
+
+jobs:
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[pydantic-ai,dev]"
+      - run: pytest tests
+
+  # Wildcard job for branch protection: require only this check.
+  check:
+    name: Check all tests passed
+    if: always()
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: re-actors/alls-green@release/v1
+        with:
+          jobs: ${{ toJSON(needs) }}
