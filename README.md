@@ -1,7 +1,7 @@
 # metaflow-durability
 
 > [!WARNING]
-> **This project is a proof of concept.** There is no guarantee that it will be maintained, and APIs may change or disappear without notice. You are welcome to discuss it in the `#incubation-team` Slack channel.
+> **This project is a proof of concept.** There is no guarantee that it will be maintained, and APIs may change or disappear without notice. You are welcome to discuss it in the [github issue tracker](https://github.com/Anaconda-Labs/metaflow-durability/issues)
 
 Agents in Metaflow steps, made durable. metaflow-durability has two independent parts; use either one, and neither needs the other:
 
