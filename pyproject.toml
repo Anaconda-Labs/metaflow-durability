@@ -16,7 +16,7 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "https://github.com/anaconda-incubation/metaflow-durability"
+repository = "https://github.com/Anaconda-Labs/metaflow-durability"
 
 [project.optional-dependencies]
 pydantic-ai = [
